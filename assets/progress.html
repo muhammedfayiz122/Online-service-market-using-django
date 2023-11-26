@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- CSS -->
+<style>
+  .progress-circle {
+    position: relative;
+    width: 100px;
+    height: 100px;
+  }
+
+  .progress-circle__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .progress-circle__svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .progress-circle__background {
+    fill: none;
+    stroke: #e5e5e5;
+    stroke-width: 10;
+  }
+
+  .progress-circle__progress1 {
+    fill: none;
+    stroke: #0040ff;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283;
+    transition: stroke-dashoffset 1s ease-in-out;
+    transform: rotate(-90deg);
+    /* rotates the progress to start from the top */
+    transform-origin: center center;
+  }
+
+  .progress-circle__progress2 {
+    fill: none;
+    stroke: #0040ff;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283;
+    transition: stroke-dashoffset 1s ease-in-out;
+    transform: rotate(-90deg);
+    /* rotates the progress to start from the top */
+    transform-origin: center center;
+  }
+
+  .progress-circle__progress3 {
+    fill: none;
+    stroke: #0040ff;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283;
+    transition: stroke-dashoffset 1s ease-in-out;
+    transform: rotate(-90deg);
+    /* rotates the progress to start from the top */
+    transform-origin: center center;
+  }
+
+  .progress-circle__progress4 {
+    fill: none;
+    stroke: #0040ff;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283;
+    transition: stroke-dashoffset 1s ease-in-out;
+    transform: rotate(-90deg);
+    /* rotates the progress to start from the top */
+    transform-origin: center center;
+  }
+
+  .progress-circle__progress5 {
+    fill: none;
+    stroke: #0040ff;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283;
+    transition: stroke-dashoffset 1s ease-in-out;
+    transform: rotate(-90deg);
+    /* rotates the progress to start from the top */
+    transform-origin: center center;
+  }
+
+  .progress-circle__percentage1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    padding-top: 0.5rem;
+  }
+
+  .progress-circle__percentage2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    padding-top: 0.5rem;
+  }
+
+  .progress-circle__percentage3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    padding-top: 0.5rem;
+  }
+
+  .progress-circle__percentage4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    padding-top: 0.5rem;
+  }
+
+  .progress-circle__percentage5 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    padding-top: 0.5rem;
+  }
+</style>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>MY_PROGRESS</title>
+  <!-- plugins:css -->
+  <!-- Include Bootstrap CSS and JavaScript files -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="style1.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+</head>
+
+<body>
+
+  <div class="container-scroller">
+
+    <!-- partial:partials/_navbar.html -->
+
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo-mini" href="#"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-stretch">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="mdi mdi-menu"></span>
+        </button>
+
+        <ul class="navbar-nav navbar-nav-right">
+          
+          <li class="nav-item d-none d-lg-block full-screen-link">
+            <a class="nav-link">
+              <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+            </a>
+          </li>
+          
+          
+          <li class="nav-item nav-logout d-none d-lg-block">
+            <a class="nav-link" href="">
+              <i class="mdi mdi-power"></i>
+            </a>
+          </li>
+          <li class="nav-item nav-settings d-none d-lg-block">
+            <a class="nav-link" href="#db">
+              <i class="mdi mdi-format-line-spacing"></i>
+            </a>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
+          <span class="mdi mdi-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
+              <div class="nav-profile-image">
+                <img src="assets/images/logo-mini.svg" alt="profile">
+                <span class="login-status online"></span>
+                <!--change to offline or busy as needed-->
+              </div>
+              <div class="nav-profile-text d-flex flex-column">
+                <span class="font-weight-bold mb-2">MY PROGRESS</span>
+                <span class="text-secondary text-small"></span>
+              </div>
+              <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span class="menu-title">Dashboard</span>
+              <i class="mdi mdi-view-dashboard menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
+              aria-controls="ui-basic">
+              <span class="menu-title">Road map</span>
+              <i class="menu-arrow"></i>
+              <i class="mdi mdi-share-variant menu-icon"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="#phts">Photo</a></li>
+                <li class="nav-item"> <a class="nav-link" href="#txt">Contents</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#drive">
+              <span class="menu-title">Drive</span>
+              <i class="mdi mdi-google-drive menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#events">
+              <span class="menu-title">Events</span>
+              <i class="mdi mdi-theater menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tickets">
+              <span class="menu-title">Tickets</span>
+              <i class="mdi mdi-cart-outline menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#rewards">
+              <span class="menu-title">Rewards</span>
+              <i class="mdi mdi-gift-outline menu-icon"></i>
+            </a>
+          </li> -->
+          </li>
+          
+        </ul>
+      </nav>
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <!-- contents in this page without backgroud or other bars -->
+        <div id="contents">
+          <div class="page-header" id="db">
+            <h3 class="page-title">
+              <span class="page-title-icon bg-gradient-primary text-white me-2">
+                <i class="mdi mdi-home"></i>
+              </span> Dashboard
+            </h3>
+            <nav aria-label="breadcrumb">
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                  <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="row">
+            <div class="col-md-499 stretch-card grid-margin">
+              <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body">
+                  <h4 class="font-weight-normal mb-3"> TOTAL PROGRESS <i
+                      class="mdi mdi-chart-line mdi-24px float-right"></i>
+                  </h4>
+                  <!-- Add the progress bar -->
+                  <div class="progress">
+                    <div id="progress-bar" class="progress-bar bg-gradient-primary" role="progressbar"
+                      style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <!-- Add the percentage display -->
+                  <div id="progress-text" class="text-center mt-2">0%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- dynamic row cards -->
+          <div class="row">
+            <div id="cardContainer"></div>
+          </div>
+          <!-- dynamic row cards ended -->
+        </div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container-fluid d-flex justify-content-between">
+      </div>
+    </footer>
+
+  </div>
+  </div>
+  </div>
+
+  <a id="back-to-top" href="#db"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M12 3L1 12h6v8h10v-8h6z" />
+      <path d="M0 0h24v24H0z" fill="none" />
+    </svg>
+  </a>
+  
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+      // alert(xhr.readyState)
+      if (xhr.readyState === 4) {
+        // alert(xhr.status)
+        if (xhr.status === 200) {
+
+          const data = JSON.parse(xhr.responseText);
+          // alert(data.d4_percentage)
+
+
+
+          total_name = data.total_name
+          total_total = data.total_total
+          total_finsihed = data.total_finsihed
+          total_percentage = data.total_percentage
+
+          //setting up linear progress bar ###########################
+          // Get the progress bar element
+          var progressBar = document.getElementById("progress-bar");
+          // Get the percentage display element
+          var progressText = document.getElementById("progress-text");
+
+          // Set the progress value (0-100)
+          function setProgress(progress) {
+            progressBar.style.width = progress + "%";
+            progressBar.setAttribute("aria-valuenow", progress);
+            progressText.innerText = progress + "%"; // Update the percentage display
+          }
+
+          // Example usage: set the progress to 70%
+          setProgress(total_percentage);
+
+          // progress bar setup finished #########################
+
+          const cardTitles = []
+          // alert("hi")
+          for (let i = 1; i < data.limit; i++) {
+            // eval(`data.d${i}_name`)
+            cardTitles[i - 1] = eval(`data.d${i}_name`)
+            // alert(i)
+          }
+          // alert(cardTitles)
+
+         
+
+          // Function to create a card
+          function createCard(title, i, per) {
+            const card = document.createElement("div");
+            card.classList.add("col-md-4", "stretch-card", "grid-margin");
+
+            const cardInner = document.createElement("div");
+            cardInner.classList.add("card", "bg-gradient-fayiz"+Math.floor((Math.random() * 6) + 1), "card-img-holder", "text-white");
+
+            const cardBody = document.createElement("div");
+            cardBody.classList.add("card-body");
+
+            const cardTitle = document.createElement("h4");
+            cardTitle.classList.add("font-weight-normal", "mb-3");
+            cardTitle.textContent = title;
+
+            const icon = document.createElement("i");
+            icon.classList.add("mdi", "mdi-chart-line", "mdi-24px", "float-right");
+
+            const progressCircle = document.createElement("div");
+            progressCircle.classList.add("progress-circle");
+
+            const progressCircleInner = document.createElement("div");
+            progressCircleInner.classList.add("progress-circle__inner");
+
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.classList.add("progress-circle__svg");
+            svg.setAttribute("viewBox", "0 0 100 100");
+
+            const circleBackground = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circleBackground.classList.add("progress-circle__background");
+            circleBackground.setAttribute("cx", "50");
+            circleBackground.setAttribute("cy", "50");
+            circleBackground.setAttribute("r", "45");
+
+            const circleProgress = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circleProgress.classList.add("progress-circle__progress1");
+            circleProgress.setAttribute("cx", "50");
+            circleProgress.setAttribute("cy", "50");
+            circleProgress.setAttribute("r", "45");
+//----------------------------------------------------------------------------------------------
+            const circumference = 2 * Math.PI * circleProgress.getAttribute('r');
+            const dashOffset = circumference - (per / 100) * circumference;
+
+            // Update the dash offset and percentage text
+            circleProgress.style.strokeDashoffset = dashOffset;
+//--------------------------------------------------------------------------------------------------
+            const percentage = document.createElement("div");
+            percentage.classList.add("progress-circle__percentage1");
+            percentage.textContent = per+"%";
+
+            svg.appendChild(circleBackground);
+            svg.appendChild(circleProgress);
+            progressCircleInner.appendChild(svg);
+            progressCircleInner.appendChild(percentage);
+            progressCircle.appendChild(progressCircleInner);
+            cardBody.appendChild(cardTitle);
+            cardBody.appendChild(icon);
+            cardBody.appendChild(progressCircle);
+            cardInner.appendChild(cardBody);
+            card.appendChild(cardInner);
+
+            return card;
+          }
+
+           //------------------------------------------------------------------------------
+          //function to update circular progress bar
+          function updateProgressBar(percentage_now, progressBar) {
+            // Calculate the dash offset based on the percentage
+            const circumference = 2 * Math.PI * progressBar.getAttribute('r');
+            const dashOffset = circumference - (percentage_now / 100) * circumference;
+
+            // Update the dash offset and percentage text
+            progressBar.style.strokeDashoffset = dashOffset;
+          }
+          //------------------------------------------------------------------------------
+
+          // Function to add cards to the container
+          function addCardsToContainer(cardTitles) {
+            const cardContainer = document.getElementById("cardContainer");
+            count = 0
+            while (cardTitles.length) {
+              const row = document.createElement("div");
+              row.classList.add("row");
+
+              for (let i = 0; i < 3 && cardTitles.length; i++) {
+                count++
+                percentage = eval(`data.d${count}_percentage`);
+                const cardTitle = cardTitles.shift();
+                const card = createCard(cardTitle, count,percentage);
+                row.appendChild(card);
+
+              }
+
+              cardContainer.appendChild(row);
+            }
+          }
+
+          addCardsToContainer(cardTitles);
+
+         
+        }
+        else {
+          alert("Network error");
+        }
+      }
+    };
+    xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzMVh04O5lo7NV-3zEIV_3Pre1Qa-Q_QAe0ooNf6YjNIxDWM7RMsJaqxzefP4bJmABY/exec', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send();
+  </script>
+  <script>
+    var backToTop = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset > 0) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+
+    backToTop.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+  </script>
+
+  <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+  <script src="assets/vendors/chart.js/Chart.min.js"></script>
+  <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
+  <script src="assets/js/off-canvas.js"></script>
+  <script src="assets/js/hoverable-collapse.js"></script>
+  <script src="assets/js/misc.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/todolist.js"></script>
+</body>

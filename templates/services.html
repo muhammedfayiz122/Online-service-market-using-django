@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Service Marketplace</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* Remove default margin to cover the whole viewport */
+        }
+        header {
+            margin-top: 1%;
+            background-image: url('{% static "images/cover-image.jpg" %}'); /* URL of your cover image */
+            background-size: cover;
+            height: 150px;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0; /* Adjust the padding to control the image position */
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .service {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Service Marketplace</h1>
+    </header>
+    <div class="container">
+        <h2>Available Services</h2>
+        <div class="service">
+            <h3>Plumbing Services</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="service">
+            <h3>Electrical Repairs</h3>
+            <p>Suspendisse vulputate in elit vel venenatis.</p>
+        </div>
+        <div class="service">
+            <h3>House Cleaning</h3>
+            <p>Proin laoreet a libero vel rhoncus.</p>
+        </div>
+    </div>
+</body>
+</html>
