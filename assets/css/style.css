@@ -12005,6 +12005,10 @@ fieldset:disabled .btn {
   text-align: center !important;
 }
 
+.text-center {
+  text-align: center !important;
+}
+
 .text-decoration-none {
   text-decoration: none !important;
 }
@@ -16711,7 +16715,7 @@ code {
 
 .grid-margin-search {
   margin-bottom: 1rem;
-  margin-top: 3rem;
+  margin-top: 0.5 rem;
 }
 
 .grid-margin,

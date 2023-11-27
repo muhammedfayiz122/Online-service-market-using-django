@@ -1,53 +1,172 @@
 <!DOCTYPE html>
-{% load static %}
-<html>
+<html lang="en">
+
 <head>
-    <title>Service Marketplace</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0; /* Remove default margin to cover the whole viewport */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
         }
-        header {
-            margin-top: 1%;
-            background-image: url('{% static "images/cover-image.jpg" %}'); /* URL of your cover image */
+
+        .mg-panel-item {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .panel {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .mg-panel__img {
+            width: 100%;
+            height: 200px;
             background-size: cover;
-            height: 150px;
             background-position: center;
-            color: #fff;
-            text-align: center;
-            padding: 100px 0; /* Adjust the padding to control the image position */
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+
+        .mg-panel__content {
             padding: 20px;
         }
-        .service {
-            border: 1px solid #ccc;
-            padding: 10px;
+
+        .mg-panel__title a {
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .mg-panel__title a:hover {
+            color: #4caf50;
+        }
+
+        .mg-panel__content p {
+            color: #555;
             margin: 10px 0;
         }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 10px 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mg-panel__template-item a {
+            color: #4caf50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .mg-panel__template-item a:hover {
+            color: #45a049;
+        }
     </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleaning Services</title>
+    <!-- Add your stylesheets and other head elements here -->
 </head>
+
 <body>
-    <header>
-        <h1>Service Marketplace</h1>
-    </header>
-    <div class="container">
-        <h2>Available Services</h2>
-        <div class="service">
-            <h3>Plumbing Services</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="service">
-            <h3>Electrical Repairs</h3>
-            <p>Suspendisse vulputate in elit vel venenatis.</p>
-        </div>
-        <div class="service">
-            <h3>House Cleaning</h3>
-            <p>Proin laoreet a libero vel rhoncus.</p>
+
+    <div class="mg-panel-item">
+        <div class="mg-panel panel panel--floating box-no-padding">
+            <a aria-label="Cleaning" aria-hidden="true" href="/m/cleaning">
+                <div aria-hidden="true" aria-label="" class="mg-panel__img mg-panel__img--10"
+                    data-lazy-background="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/v1687964063/xlykzj1qg2f1gyzqbaki.jpg"
+                    role="img"
+                    style="background-image: url(&quot;https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/v1687964063/xlykzj1qg2f1gyzqbaki.jpg&quot;);">
+                </div>
+            </a>
+            <div class="mg-panel__content">
+                <div class="mg-panel__title">
+                    <a href="/services/cleaning">Cleaning</a>
+                </div>
+                <p>Taskers will make your home sparkle!</p>
+                <hr>
+                <ul>
+                    <li class="mg-panel__template-item"><a href="/services/cleaning/house-cleaning">House Cleaning
+                            Services</a></li>
+                    <li class="mg-panel__template-item"><a href="/services/cleaning/disinfecting-service">Disinfecting
+                            Services</a></li>
+                    <li class="mg-panel__template-item"><a href="/services/cleaning/carpet-cleaning">Carpet Cleaning
+                            Service</a></li>
+                    <li class="mg-panel__template-item"><a href="/services/cleaning/mobile-car-wash">Car Washing</a>
+                    </li>
+                    <li class="mg-panel__template-item"><a href="/services/cleaning/laundry-help">Laundry Help</a></li>
+
+                </ul>
+            </div>
         </div>
     </div>
+
+    <div class="mg-panel-item">
+        <div class="mg-panel panel panel--floating box-no-padding">
+            <a aria-label="Moving Services" aria-hidden="true" href="/m/moving">
+                <div aria-hidden="true" aria-label="" class="mg-panel__img mg-panel__img--787"
+                    data-lazy-background="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/v1687964111/isypihvnh2g1vduju3yg.jpg"
+                    role="img"
+                    style="background-image: url(&quot;https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/v1687964111/isypihvnh2g1vduju3yg.jpg&quot;);">
+                </div>
+            </a>
+            <div class="mg-panel__content">
+                <div class="mg-panel__title"><a href="/services/moving">Moving Services</a></div>
+                From the heavy lifting to unpacking and organizing make your move with Taskrabbit!
+                <hr>
+                <ul>
+                    <li class="mg-panel__template-item"><a href="/services/moving/help-moving">Help Moving</a></li>
+                    <li class="mg-panel__template-item"><a href="/services/moving/packing">Packing Services &amp;
+                            Help</a></li>
+                    <li class="mg-panel__template-item"><a href="/services/moving/heavy-lifting">Heavy Lifting</a></li>
+                    <li class="mg-panel__template-item"><a href="/services/moving/heavy-furniture">Heavy Furniture
+                            Moving</a></li>
+                    <li class="mg-panel__template-item"><a href="/services/moving/rearrange-furniture">Rearrange
+                            Furniture</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mg-panel-item">
+        <div class="mg-panel panel panel--floating box-no-padding">
+            <a aria-label="Handyman" aria-hidden="true" href="/m/handyman">
+                <div aria-hidden="true" aria-label="" class="mg-panel__img mg-panel__img--12"
+                    data-lazy-background="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/v1687964318/xmefpgnqfunlxtteeyr8.jpg"
+                    role="img"
+                    style="background-image: url(&quot;https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/v1687964318/xmefpgnqfunlxtteeyr8.jpg&quot;);">
+                </div>
+            </a>
+            <div class="mg-panel__content">
+                <div class="mg-panel__title"><a href="/services/handyman">Handyman</a></div>
+                Hire a Tasker for help around the house
+                <hr>
+                <ul>
+                    <li class="mg-panel__template-item"><a href="/services/handyman/general-handyman">Home Repairs</a>
+                    </li>
+                    <li class="mg-panel__template-item"><a href="/services/handyman/smart-home-installation">Smart Home
+                            Installation</a></li>
+                    <li class="mg-panel__template-item"><a href="/services/handyman/install-air-conditioner">Install Air
+                            Conditioner</a></li>
+                    <li class="mg-panel__template-item"><a href="/services/handyman/painting">Painting</a></li>
+                    <li class="mg-panel__template-item"><a href="/services/handyman/plumbing">Plumbing</a></li>
+                    <li class="mg-panel__template-item"><a href="/services/handyman/electrical-work">Electrical Help</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Add your scripts and other body elements here -->
+
 </body>
+
 </html>

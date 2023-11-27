@@ -25,7 +25,7 @@
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-none d-md-flex flex-row">
-    <!-- <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row"> -->
+      <!-- <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row"> -->
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="index.html"><img src="{% static 'images/log.svg' %}" alt="logo" /></a>
         <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{% static 'images/logo-mini.svg' %}"
@@ -35,15 +35,13 @@
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="mdi mdi-menu"></span>
         </button>
-        <div class="search-field d-none d-md-block">
-          <form class="d-flex align-items-center h-100" action="#">
-            <div class="input-group">
-              <div class="input-group-prepend bg-transparent">
-                <i class="input-group-text border-0 mdi mdi-magnify"></i>
-              </div>
-              <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
-            </div>
-          </form>
+
+        <div class="d-flex align-items-center-serv h-100 text-center">
+          <mark>
+            <a href="" class="text-decoration-none">
+              <h3 class="font-weight-bold text-success text-services text-center ">Services</h3>
+            </a>
+          </mark>
         </div>
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
@@ -284,14 +282,6 @@
       <!-- ###################################################################################################### -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="page-header" id="db">
-            <h3 class="page-title">
-              <span class="page-title-icon bg-gradient-primary text-white me-2">
-                <i class="mdi mdi-home"></i>
-              </span> Home
-            </h3>
-
-          </div>
           <div class="row-center">
             <div class="row-search ">
               <div class="col-md-499  grid-margin align-items-center text-center">
@@ -433,8 +423,8 @@
                     <div class="col-6 pe-1">
                       <img src="{% static 'images/services/HP-Handyperson-For-Small-Projects.jpg' %}"
                         class="mb-2 mw-100 w-100 rounded" alt="image">
-                      <img src="{% static 'images/services/HP-Holiday-Lights-Hanging.jpg' %}" class="mw-100 w-100 rounded"
-                        alt="image">
+                      <img src="{% static 'images/services/HP-Holiday-Lights-Hanging.jpg' %}"
+                        class="mw-100 w-100 rounded" alt="image">
                     </div>
                     <div class="col-6 ps-1">
                       <img src="{% static 'images/services/HP-maid-service.jpg' %}" class="mb-2 mw-100 w-100 rounded"
@@ -472,7 +462,7 @@
 
           <!-- row for dispalying services -->
           <div class="row">
-            
+
             <!-- first card -->
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card-services bg-gradient-services card-img-holder text-dark text-decoration-none">
@@ -484,8 +474,7 @@
                     <p class="card-description">Price: ₹270</p>
                     <div class="template-demo">
                       <!-- Update the button to link to the book_service view -->
-                      <a href="{% url 'book_service' service_id=1 %}"
-                        class="btn btn-gradient-primary">Book Service</a>
+                      <a href="{% url 'book_service' service_id=1 %}" class="btn btn-gradient-primary">Book Service</a>
                     </div>
                   </div>
                 </div>
@@ -493,7 +482,7 @@
             </div>
             <!-- first card ended -->
 
-            
+
             <!-- first card -->
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card-services bg-gradient-services card-img-holder text-dark text-decoration-none">
@@ -505,8 +494,7 @@
                     <p class="card-description">Price: ₹270</p>
                     <div class="template-demo">
                       <!-- Update the button to link to the book_service view -->
-                      <a href="{% url 'book_service' service_id=1 %}"
-                        class="btn btn-gradient-primary">Book Service</a>
+                      <a href="{% url 'book_service' service_id=1 %}" class="btn btn-gradient-primary">Book Service</a>
                     </div>
                   </div>
                 </div>
@@ -514,7 +502,7 @@
             </div>
             <!-- first card ended -->
 
-            
+
             <!-- first card -->
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card-services bg-gradient-services card-img-holder text-dark text-decoration-none">
@@ -526,8 +514,7 @@
                     <p class="card-description">Price: ₹270</p>
                     <div class="template-demo">
                       <!-- Update the button to link to the book_service view -->
-                      <a href="{% url 'book_service' service_id=1 %}"
-                        class="btn btn-gradient-primary">Book Service</a>
+                      <a href="{% url 'book_service' service_id=1 %}" class="btn btn-gradient-primary">Book Service</a>
                     </div>
                   </div>
                 </div>
@@ -546,12 +533,12 @@
                 <div class="card-body-services">
                   <img src="{% static 'images/services/Minor_Plumbing_Repairs.jpg' %}" class="mb-2 mw-100 w-100 rounded"
                     alt="image">
-                    <div class="card-body text-center">
-                      <h4 class="card-title ">Plumbing</h4>
-                      <p class="card-description">Price : $270</p>
-                      <div class="template-demo">
-                      </div>
+                  <div class="card-body text-center">
+                    <h4 class="card-title ">Plumbing</h4>
+                    <p class="card-description">Price : $270</p>
+                    <div class="template-demo">
                     </div>
+                  </div>
 
                 </div>
               </div>
@@ -564,12 +551,12 @@
                 <div class="card-body-services">
                   <img src="{% static 'images/services/Minor_Plumbing_Repairs.jpg' %}" class="mb-2 mw-100 w-100 rounded"
                     alt="image">
-                    <div class="card-body text-center">
-                      <h4 class="card-title ">Plumbing</h4>
-                      <p class="card-description">Price : $270</p>
-                      <div class="template-demo">
-                      </div>
+                  <div class="card-body text-center">
+                    <h4 class="card-title ">Plumbing</h4>
+                    <p class="card-description">Price : $270</p>
+                    <div class="template-demo">
                     </div>
+                  </div>
 
                 </div>
               </div>
@@ -581,12 +568,12 @@
                 <div class="card-body-services">
                   <img src="{% static 'images/services/Minor_Plumbing_Repairs.jpg' %}" class="mb-2 mw-100 w-100 rounded"
                     alt="image">
-                    <div class="card-body text-center">
-                      <h4 class="card-title ">Plumbing</h4>
-                      <p class="card-description">Price : $270</p>
-                      <div class="template-demo">
-                      </div>
+                  <div class="card-body text-center">
+                    <h4 class="card-title ">Plumbing</h4>
+                    <p class="card-description">Price : $270</p>
+                    <div class="template-demo">
                     </div>
+                  </div>
 
                 </div>
               </div>
@@ -595,7 +582,7 @@
             <!-- div for row -->
           </div>
 
-          
+
 
           <!-- partial:partials/_footer.html -->
 
