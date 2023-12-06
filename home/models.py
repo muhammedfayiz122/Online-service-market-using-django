@@ -21,6 +21,8 @@ class User(AbstractUser):
 class Category(models.Model):
     CategoryID = models.AutoField(primary_key=True)
     CategoryName = models.CharField(max_length=255)
+    Caption = models.CharField(max_length=255, default='')
+    Imageurl = models.CharField(max_length=255, default='')
 
 
 class Service(models.Model):
@@ -39,15 +41,6 @@ class Location(models.Model):
     postcode = models.CharField(max_length=10)
     country = models.CharField(max_length=255)
 
-class Appointment(models.Model):
-    AppointmentID = models.AutoField(primary_key=True)
-    UserID = models.ForeignKey(User, on_delete=models.CASCADE)
-    ServiceID = models.ForeignKey(Service, on_delete=models.CASCADE)
-    locationId = models.ForeignKey(Location, on_delete=models.CASCADE)
-    ServiceDate = models.DateField(default='0000-00-00')
-    AppointmentDate = models.DateField()
-    AppointmentTime = models.TimeField()
-
 class Employee(models.Model):
     EmployeeID = models.AutoField(primary_key=True)
     Employee_name = models.CharField(max_length=255, default='', null=False)
@@ -58,4 +51,16 @@ class Employee(models.Model):
     Address = models.CharField(max_length=255, default='', null=False)
     Age = models.IntegerField(default=0, null=False)  
     Pin_code = models.CharField(max_length=10, default='', null=False)
+    Rating = models.DecimalField(max_digits=3, decimal_places=1)
+    Charge = models.IntegerField()
+    Location = models.CharField(max_length=255, default='')
 
+class Appointment(models.Model):
+    AppointmentID = models.AutoField(primary_key=True)
+    UserID = models.ForeignKey(User, on_delete=models.CASCADE)
+    EmployeeID = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    ServiceID = models.ForeignKey(Service, on_delete=models.CASCADE)
+    locationId = models.ForeignKey(Location, on_delete=models.CASCADE)
+    ServiceDate = models.DateField()
+    AppointmentDate = models.DateField()
+    AppointmentTime = models.TimeField()

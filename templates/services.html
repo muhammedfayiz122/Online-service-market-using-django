@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -90,20 +91,27 @@
             </a>
             <div class="mg-panel__content">
                 <div class="mg-panel__title">
-                    <a href="/services/cleaning">Cleaning</a>
+                    <a href="">Cleaning</a>
                 </div>
                 <p>Taskers will make your home sparkle!</p>
                 <hr>
                 <ul>
-                    <li class="mg-panel__template-item"><a href="/services/cleaning/house-cleaning">House Cleaning
+                    <!-- {% url 'workers_profile' service=House_Cleaning_Services % -->
+                    <!-- <li class="mg-panel__template-item"><a href="{% url 'workers_profile' service_id=1 %}">House Cleaning
+                            Services</a></li> -->
+                    <li class="mg-panel__template-item"><a href="{% url 'service_details' service_id=1 %}">House
+                            Cleaning
                             Services</a></li>
-                    <li class="mg-panel__template-item"><a href="/services/cleaning/disinfecting-service">Disinfecting
+                    <li class="mg-panel__template-item"><a href="{% url 'workers_profile' service_id=2 %}">Disinfecting
                             Services</a></li>
-                    <li class="mg-panel__template-item"><a href="/services/cleaning/carpet-cleaning">Carpet Cleaning
+                    <li class="mg-panel__template-item"><a href="{% url 'workers_profile' service_id=3 %}">Carpet
+                            Cleaning
                             Service</a></li>
-                    <li class="mg-panel__template-item"><a href="/services/cleaning/mobile-car-wash">Car Washing</a>
+                    <li class="mg-panel__template-item"><a href="{% url 'workers_profile' service_id=4 %}">Car
+                            Washing</a>
                     </li>
-                    <li class="mg-panel__template-item"><a href="/services/cleaning/laundry-help">Laundry Help</a></li>
+                    <li class="mg-panel__template-item"><a href="{% url 'workers_profile' service_id=5 %}">Laundry
+                            Help</a></li>
 
                 </ul>
             </div>
@@ -120,17 +128,21 @@
                 </div>
             </a>
             <div class="mg-panel__content">
-                <div class="mg-panel__title"><a href="/services/moving">Moving Services</a></div>
-                From the heavy lifting to unpacking and organizing make your move with Taskrabbit!
+                <div class="mg-panel__title"><a href="">Moving Services</a></div>
+                <p>From the heavy lifting to unpacking and organizing make your move with Taskrabbit!</p>
                 <hr>
                 <ul>
-                    <li class="mg-panel__template-item"><a href="/services/moving/help-moving">Help Moving</a></li>
-                    <li class="mg-panel__template-item"><a href="/services/moving/packing">Packing Services &amp;
-                            Help</a></li>
-                    <li class="mg-panel__template-item"><a href="/services/moving/heavy-lifting">Heavy Lifting</a></li>
-                    <li class="mg-panel__template-item"><a href="/services/moving/heavy-furniture">Heavy Furniture
+                    <li class="mg-panel__template-item"><a href="{% url 'service_details' service_id=6 %}">Help
                             Moving</a></li>
-                    <li class="mg-panel__template-item"><a href="/services/moving/rearrange-furniture">Rearrange
+                    <li class="mg-panel__template-item"><a href="{% url 'service_details' service_id=7 %}">Packing
+                            Services &amp;
+                            Help</a></li>
+                    <li class="mg-panel__template-item"><a href="{% url 'service_details' service_id=8 %}">Heavy
+                            Lifting</a></li>
+                    <li class="mg-panel__template-item"><a href="{% url 'service_details' service_id=9 %}">Heavy
+                            Furniture
+                            Moving</a></li>
+                    <li class="mg-panel__template-item"><a href="{% url 'service_details' service_id=10 %}">Rearrange
                             Furniture</a></li>
                 </ul>
             </div>
@@ -147,19 +159,23 @@
                 </div>
             </a>
             <div class="mg-panel__content">
-                <div class="mg-panel__title"><a href="/services/handyman">Handyman</a></div>
-                Hire a Tasker for help around the house
+                <div class="mg-panel__title"><a href="">Handyman</a></div>
+                <p>Hire a Tasker for help around the house</p>
                 <hr>
                 <ul>
-                    <li class="mg-panel__template-item"><a href="/services/handyman/general-handyman">Home Repairs</a>
+                    <li class="mg-panel__template-item"><a href="{% url 'service_details' service_id=11 %}">Home
+                            Repairs</a>
                     </li>
-                    <li class="mg-panel__template-item"><a href="/services/handyman/smart-home-installation">Smart Home
+                    <li class="mg-panel__template-item"><a href="{% url 'service_details' service_id=12 %}">Smart Home
                             Installation</a></li>
-                    <li class="mg-panel__template-item"><a href="/services/handyman/install-air-conditioner">Install Air
+                    <li class="mg-panel__template-item"><a href="{% url 'service_details' service_id=13 %}">Install Air
                             Conditioner</a></li>
-                    <li class="mg-panel__template-item"><a href="/services/handyman/painting">Painting</a></li>
-                    <li class="mg-panel__template-item"><a href="/services/handyman/plumbing">Plumbing</a></li>
-                    <li class="mg-panel__template-item"><a href="/services/handyman/electrical-work">Electrical Help</a>
+                    <li class="mg-panel__template-item"><a href="{% url 'service_details' service_id=14 %}">Painting</a>
+                    </li>
+                    <li class="mg-panel__template-item"><a href="{% url 'service_details' service_id=15 %}">Plumbing</a>
+                    </li>
+                    <li class="mg-panel__template-item"><a href="{% url 'service_details' service_id=16 %}">Electrical
+                            Help</a>
                     </li>
                 </ul>
             </div>

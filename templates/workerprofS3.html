@@ -1,116 +1,64 @@
+<!-- profiles.html -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles3.css">
+    <link rel="stylesheet" href="{% static 'css/styles3.css' %}">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Online service market</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{% static 'vendors/mdi/css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
     <title>Worker Profile</title>
 </head>
 
 <body>
+    <h1>Choose an employee</h1>
+    {% for employee in employees %}
     <div class="profile-container">
         <div class="profile-header">
-            <img src="https://wallpapers.com/images/featured-full/thor-qzytdg8xliuaelun.jpg" alt="Worker Photo">
-            <h1>THOR</h1>
-            <div class="rating">Rating: 4.5</div>
-            <div class="location">Location: thalassery</div>
+
+            <img src="{% static 'images/faces' %}{{ employee.employeeID }}.jpg"
+                onerror="this.src='{% static 'images/faces/face1.jpg' %}' " alt="employee Photo">
+            <h1>{{ employee.Employee_name }}</h1>
+            <div class="rating">Rating: {{ employee.Rating }}</div>
+            <div class="location">Location: {{ employee.Location }}</div>
         </div>
         <div class="profile-details">
-            <h2>Services Offered</h2>
+            <h3>employee Details</h3>
             <ul>
-                <li></li>
-                <li>carpentry</li>
-                <li>Electrical services</li>
+                <li><strong>Phone Number:</strong> {{ employee.Phone_number }}</li>
+                <li><strong>Address:</strong> {{ employee.Address }}</li>
+                <li><strong>Age:</strong> {{ employee.Age }}</li>
+                <li><strong>Pin Code:</strong> {{ employee.Pin_code }}</li>
+                <li><strong>Charge:</strong> {{ employee.Charge }}</li>
+                <li><strong>Date of Birth:</strong> {{ employee.Date_of_birth }}</li>
             </ul>
-            <h2>Fee</h2>
-            <div class="fee">$50 per hour</div>
+            <h4>Services Offered</h4>
+            <ul>
+                <li><strong>Category:</strong> {{ employee.CategoryID.CategoryName }}</li>
+                <li><strong>Service:</strong> {{ employee.ServiceID.ServiceName }}</li>
+            </ul>
+            <a href="{% url 'appointment' service_id=service_id employee_id=employee.EmployeeID %}">
+                <button type="button" class="btn btn-success btn-fw">Select and Continue</button>
+            </a>
         </div>
     </div>
-
-    <div class="profile-container">
-        <div class="profile-header">
-            <img src="https://static.wikia.nocookie.net/marveldatabase/images/3/36/Tobey_SMNWH_profilo.jpg" alt="Worker Photo">
-            <h1>peter parker</h1>
-            <div class="rating">Rating: 4.9</div>
-            <div class="location">Location: kannur</div>
-        </div>
-        <div class="profile-details">
-            <h2>Services Offered</h2>
-            <ul>
-                <li></li>
-                <li>pest control</li>
-                <li></li>
-            </ul>
-            <h2>Fee</h2>
-            <div class="fee">300 RS per hour</div>
-        </div>
-    </div>
-
-    <div class="profile-container">
-        <div class="profile-header">
-            <img src="https://www.cheatsheet.com/wp-content/uploads/2019/06/RDJ-Tony-Stark.jpg" alt="Worker Photo">
-            <h1>Tony Stark</h1>
-            <div class="rating">Rating: 4.9</div>
-            <div class="location">Location: kuthuparamba</div>
-        </div>
-        <div class="profile-details">
-            <h2>Services Offered</h2>
-            <ul>
-                <li>Home security</li>
-                <li>welding</li>
-                <li></li>
-            </ul>
-            <h2>Fee</h2>
-            <div class="fee">1000 RS per hour</div>
-        </div>
-    </div>
-
-    <div class="profile-container">
-        <div class="profile-header">
-            <img src="https://static.jewishnews.co.uk/jewishnews/uploads/2019/12/blackwidow.png" alt="Worker Photo">
-            <h1>black widow</h1>
-            <div class="rating">Rating: 3.0</div>
-            <div class="location">Location: panoor</div>
-        </div>
-        <div class="profile-details">
-            <h2>Services Offered</h2>
-            <ul>
-                <li>house cleaning</li>
-                <li>window cleaning</li>
-                <li></li>
-            </ul>
-            <h2>Fee</h2>
-            <div class="fee">250 RS per hour</div>
-        </div>
-    </div>
-
-    <div class="profile-container">
-        <div class="profile-header">
-            <img src="https://static.wikia.nocookie.net/marveldatabase/images/0/0b/FXUv3kqXgAE3MNA.jpg/revision/latest?cb=20220710205117" alt="Worker Photo">
-            <h1>wanda maximoff</h1>
-            <div class="rating">Rating: 4.0</div>
-            <div class="location">Location: vengad</div>
-        </div>
-        <div class="profile-details">
-            <h2>Services Offered</h2>
-            <ul>
-                <li>lawn care</li>
-                <li>moving services</li>
-                <li>window cleaning</li>
-            </ul>
-            <h2>Fee</h2>
-            <div class="fee">700 RS per hour</div>
-        </div>
-    </div>
-
-
-
+    {% endfor %}
 </body>
-
-
-
-    
-
 
 </html>

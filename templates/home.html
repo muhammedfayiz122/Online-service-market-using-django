@@ -38,7 +38,7 @@
 
         <div class="d-flex align-items-center-serv h-100 text-center">
           <mark>
-            <a href="" class="text-decoration-none">
+            <a href="{% url 'services' %}" class="text-decoration-none">
               <h3 class="font-weight-bold text-success text-services text-center ">Services</h3>
             </a>
           </mark>
@@ -52,7 +52,7 @@
                 <span class="availability-status online"></span>
               </div>
               <div class="nav-profile-text">
-                <p class="mb-1 text-black">David Greymaax</p>
+                <p class="mb-1 text-black">{{user_name}}</p>
               </div>
             </a>
             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -190,7 +190,7 @@
                 <!--change to offline or busy as needed-->
               </div>
               <div class="nav-profile-text d-flex flex-column">
-                <span class="font-weight-bold mb-2">David Grey. H</span>
+                <span class="font-weight-bold mb-2">{{user_name}}</span>
                 <span class="text-secondary text-small">Project Manager</span>
               </div>
               <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -319,7 +319,7 @@
           <!-- First row starting -->
           <div class="row-buttn">
             <div class="template-demo d-flex justify-content-between flex-nowrap">
-              <button type="button" class="btn btn-gradient-dark btn-squared btn-icon">
+              <button type="button" class="btn btn-gradient-dark btn-squared btn-icon" id="button1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none">
                   <path d="M4 17a3 3 0 013-3h34a3 3 0 013 3v7H4v-7zM7 24h34v13a3 3 0 01-3 3H10a3 3 0 01-3-3V24z"
                     fill="#FF6153"></path>
@@ -328,7 +328,7 @@
                   <path d="M18.5 14v-2a3 3 0 013-3h5a3 3 0 013 3v2" stroke="#FF6153" stroke-width="2"></path>
                 </svg>
               </button>
-              <button type="button" class="btn btn-gradient-dark btn-squared btn-icon">
+              <button type="button" class="btn btn-gradient-dark btn-squared btn-icon" id="button2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none">
                   <path d="M28 28h4v15h-4V28z" fill="#FF6153"></path>
                   <path fill="#A03027" d="M14 35h4v7h-4z"></path>
@@ -346,7 +346,7 @@
                     fill="#FF6153"></path>
                 </svg>
               </button>
-              <button type="button" class="btn btn-gradient-dark btn-squared btn-icon">
+              <button type="button" class="btn btn-gradient-dark btn-squared btn-icon" id="button3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none">
                   <path d="M6 28h22V16H6v12zm24 2v4h12v-4H30zm-2-2a2 2 0 012 2h12c0-7.732-6.268-14-14-14v12z"
                     fill="#FF6153"></path>
@@ -360,7 +360,7 @@
                   <path d="M14 16v12h10l-.469-.217A12.984 12.984 0 0116.004 16L14 16z" fill="#A03027"></path>
                 </svg>
               </button>
-              <button type="button" class="btn btn-gradient-dark btn-squared btn-icon">
+              <button type="button" class="btn btn-gradient-dark btn-squared btn-icon" id="button4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none">
                   <path
                     d="M19 30h10v6.333a.667.667 0 01-.667.667c-.736 0-1.333.597-1.333 1.333V39h-6a2 2 0 00-2-2v-7zM21 41h6a3 3 0 11-6 0z"
@@ -380,7 +380,7 @@
                     fill="#A03027"></path>
                 </svg>
               </button>
-              <button type="button" class="btn btn-gradient-dark btn-squared btn-icon">
+              <button type="button" class="btn btn-gradient-dark btn-squared btn-icon" id="button5">
                 <svg width="48" height="48" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M28 16.47v-2.529h-8v2.53c0 .442-.098.88-.287 1.28l-3.426 7.26a3 3 0 00-.287 1.28v14.71a3 3 0 003 3h10a3 3 0 003-3V26.29a3 3 0 00-.287-1.28l-3.426-7.26a3.001 3.001 0 01-.287-1.28z"
@@ -398,6 +398,30 @@
               </button>
             </div>
           </div>
+
+          <script>
+            document.getElementById('button1').addEventListener('click', function () {
+                window.location.href = "{% url 'services' %}";
+            });
+        
+            document.getElementById('button2').addEventListener('click', function () {
+                window.location.href = "{% url 'services' %}";
+            });
+
+            document.getElementById('button3').addEventListener('click', function () {
+                window.location.href = "{% url 'services' %}";
+            });
+
+            document.getElementById('button4').addEventListener('click', function () {
+                window.location.href = "{% url 'services' %}";
+            });
+
+            document.getElementById('button5').addEventListener('click', function () {
+                window.location.href = "{% url 'services' %}";
+            });
+        
+            // Add more event listeners for additional buttons
+        </script>
 
           <!-- row for spacing -->
           <div class="row" style="height: 2cm;">
@@ -455,7 +479,7 @@
             <h3 class="page-title">
               <span class="page-title-icon bg-gradient-primary text-white me-2">
                 <i class="mdi mdi-home"></i>
-              </span> Availabe Services
+              </span>Recommended Services
             </h3>
           </div>
           <!-- services heading ended -->
@@ -483,7 +507,7 @@
             <!-- first card ended -->
 
 
-            <!-- first card -->
+            <!-- Second card -->
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card-services bg-gradient-services card-img-holder text-dark text-decoration-none">
                 <div class="card-body-services">
@@ -494,16 +518,16 @@
                     <p class="card-description">Price: ₹270</p>
                     <div class="template-demo">
                       <!-- Update the button to link to the book_service view -->
-                      <a href="{% url 'book_service' service_id=1 %}" class="btn btn-gradient-primary">Book Service</a>
+                      <a href="{% url 'book_service' service_id=2 %}" class="btn btn-gradient-primary">Book Service</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- first card ended -->
+            <!-- second card ended -->
 
 
-            <!-- first card -->
+            <!-- third card -->
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card-services bg-gradient-services card-img-holder text-dark text-decoration-none">
                 <div class="card-body-services">
@@ -514,70 +538,74 @@
                     <p class="card-description">Price: ₹270</p>
                     <div class="template-demo">
                       <!-- Update the button to link to the book_service view -->
-                      <a href="{% url 'book_service' service_id=1 %}" class="btn btn-gradient-primary">Book Service</a>
+                      <a href="{% url 'book_service' service_id=3 %}" class="btn btn-gradient-primary">Book Service</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- first card ended -->
+            <!-- third card ended -->
 
             <!-- div for row -->
           </div>
 
           <div class="row">
-            <!-- first card -->
-            <!-- col-md-4 : for maintaing card size size  -->
+            <!-- fourth card -->
             <div class="col-md-4 stretch-card grid-margin">
-              <div class="card-services bg-gradient-services card-img-holder text-dark">
+              <div class="card-services bg-gradient-services card-img-holder text-dark text-decoration-none">
                 <div class="card-body-services">
                   <img src="{% static 'images/services/Minor_Plumbing_Repairs.jpg' %}" class="mb-2 mw-100 w-100 rounded"
                     alt="image">
                   <div class="card-body text-center">
-                    <h4 class="card-title ">Plumbing</h4>
-                    <p class="card-description">Price : $270</p>
+                    <h4 class="card-title">Plumbing</h4>
+                    <p class="card-description">Price: ₹270</p>
                     <div class="template-demo">
+                      <!-- Update the button to link to the book_service view -->
+                      <a href="{% url 'book_service' service_id=4 %}" class="btn btn-gradient-primary">Book Service</a>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
-            <!-- first card ended -->
+            <!-- fourth card ended -->
 
-            <!-- second card -->
+            <!-- fifth card -->
             <div class="col-md-4 stretch-card grid-margin">
-              <div class="card-services bg-gradient-services card-img-holder text-dark">
+              <div class="card-services bg-gradient-services card-img-holder text-dark text-decoration-none">
                 <div class="card-body-services">
                   <img src="{% static 'images/services/Minor_Plumbing_Repairs.jpg' %}" class="mb-2 mw-100 w-100 rounded"
                     alt="image">
                   <div class="card-body text-center">
-                    <h4 class="card-title ">Plumbing</h4>
-                    <p class="card-description">Price : $270</p>
+                    <h4 class="card-title">Plumbing</h4>
+                    <p class="card-description">Price: ₹270</p>
                     <div class="template-demo">
+                      <!-- Update the button to link to the book_service view -->
+                      <a href="{% url 'book_service' service_id=5 %}" class="btn btn-gradient-primary">Book Service</a>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
+            <!-- fifth card ended -->
 
-            <!-- third card -->
+            <!-- sixth card -->
             <div class="col-md-4 stretch-card grid-margin">
-              <div class="card-services bg-gradient-services card-img-holder text-dark">
+              <div class="card-services bg-gradient-services card-img-holder text-dark text-decoration-none">
                 <div class="card-body-services">
                   <img src="{% static 'images/services/Minor_Plumbing_Repairs.jpg' %}" class="mb-2 mw-100 w-100 rounded"
                     alt="image">
                   <div class="card-body text-center">
-                    <h4 class="card-title ">Plumbing</h4>
-                    <p class="card-description">Price : $270</p>
+                    <h4 class="card-title">Plumbing</h4>
+                    <p class="card-description">Price: ₹270</p>
                     <div class="template-demo">
+                      <!-- Update the button to link to the book_service view -->
+                      <a href="{% url 'book_service' service_id=6 %}" class="btn btn-gradient-primary">Book Service</a>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
+            <!-- sixth card ended -->
 
             <!-- div for row -->
           </div>
