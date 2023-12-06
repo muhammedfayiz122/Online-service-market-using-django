@@ -2591,7 +2591,7 @@ h5,
 h6,
 .h6 {
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
   font-weight: 500;
   line-height: 1.2;
 }
@@ -3960,6 +3960,7 @@ progress {
   }
 
   .col-md-12 {
+    
     -webkit-box-flex: 0;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
@@ -8214,6 +8215,31 @@ fieldset:disabled .btn {
   border-radius: 0.3125rem;
 }
 
+.card-image {
+  background-image: url('../images/service_images/cleaning.jpg') !important;
+  background-size: cover;  /* Ensure the background image covers the entire container */
+  background-position: center;  /* Center the background image */
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.3125rem;
+}
+
+.margin-card {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
 .card-services {
   position: relative;
   display: -webkit-box;
@@ -8295,7 +8321,6 @@ fieldset:disabled .btn {
   padding: 1rem 1rem;
   border: 0.1px solid;
   border-color: #000;
-  border-radius: 10cm;
 }
 
 .card-title {
@@ -19368,7 +19393,7 @@ code {
 }
 
 .card.card-img-holder-search {
-  border-radius: 10cm;
+  border-radius: 0cm;
   position: relative;
 }
 

@@ -79,46 +79,40 @@
 </head>
 
 <body>
-
+    {% for categories in category %}
     <div class="mg-panel-item">
         <div class="mg-panel panel panel--floating box-no-padding">
             <a aria-label="Cleaning" aria-hidden="true" href="/m/cleaning">
                 <div aria-hidden="true" aria-label="" class="mg-panel__img mg-panel__img--10"
-                    data-lazy-background="https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/v1687964063/xlykzj1qg2f1gyzqbaki.jpg"
-                    role="img"
-                    style="background-image: url(&quot;https://res.cloudinary.com/taskrabbit-com/image/upload/q_auto,f_auto/v1687964063/xlykzj1qg2f1gyzqbaki.jpg&quot;);">
+                    data-lazy-background="{{ categories.Imageurl }}" role="img"
+                    style="background-image: url('{{ categories.Imageurl }}');">
                 </div>
             </a>
             <div class="mg-panel__content">
+
                 <div class="mg-panel__title">
-                    <a href="">Cleaning</a>
+                    <a href="">{{categories.CategoryName}}</a>
                 </div>
-                <p>Taskers will make your home sparkle!</p>
+                <p>{{categories.Caption}}</p>
                 <hr>
                 <ul>
                     <!-- {% url 'workers_profile' service=House_Cleaning_Services % -->
                     <!-- <li class="mg-panel__template-item"><a href="{% url 'workers_profile' service_id=1 %}">House Cleaning
                             Services</a></li> -->
-                    <li class="mg-panel__template-item"><a href="{% url 'service_details' service_id=1 %}">House
-                            Cleaning
+                    {% for service in services %}
+                    <li class="mg-panel__template-item"><a
+                            href="{% url 'service_details' service_id=service.ServiceID %}">{{service.ServiceName}}
                             Services</a></li>
-                    <li class="mg-panel__template-item"><a href="{% url 'workers_profile' service_id=2 %}">Disinfecting
-                            Services</a></li>
-                    <li class="mg-panel__template-item"><a href="{% url 'workers_profile' service_id=3 %}">Carpet
-                            Cleaning
-                            Service</a></li>
-                    <li class="mg-panel__template-item"><a href="{% url 'workers_profile' service_id=4 %}">Car
-                            Washing</a>
-                    </li>
-                    <li class="mg-panel__template-item"><a href="{% url 'workers_profile' service_id=5 %}">Laundry
-                            Help</a></li>
+                    {% endfor %}
 
                 </ul>
+
             </div>
         </div>
     </div>
+    {% endfor %}
 
-    <div class="mg-panel-item">
+    <!-- <div class="mg-panel-item">
         <div class="mg-panel panel panel--floating box-no-padding">
             <a aria-label="Moving Services" aria-hidden="true" href="/m/moving">
                 <div aria-hidden="true" aria-label="" class="mg-panel__img mg-panel__img--787"
@@ -147,9 +141,9 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <div class="mg-panel-item">
+    <!-- <div class="mg-panel-item">
         <div class="mg-panel panel panel--floating box-no-padding">
             <a aria-label="Handyman" aria-hidden="true" href="/m/handyman">
                 <div aria-hidden="true" aria-label="" class="mg-panel__img mg-panel__img--12"
@@ -180,7 +174,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Add your scripts and other body elements here -->
 
 </body>

@@ -25,9 +25,10 @@ class Category(models.Model):
     Imageurl = models.CharField(max_length=255, default='')
 
 
-class Service(models.Model):
+class Service(models.Model):    
     ServiceID = models.AutoField(primary_key=True)
     ServiceName = models.CharField(max_length=255)
+    ShortDescription = models.CharField(max_length=255, default='')
     Description = models.TextField()
     Price = models.DecimalField(max_digits=10, decimal_places=2)
     CategoryID = models.ForeignKey(Category, on_delete=models.CASCADE)

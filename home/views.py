@@ -112,8 +112,13 @@ def book_service(request, service_id):
 # to display services page
 def services(request):
     if request.method == 'GET':
+        category = Category.objects.all()
+        services = Service.objects.all()
         # services = Service.objects.all()
-        return render(request, 'services.html')
+        return render(request, 'services.html',{
+            'category': category,
+            'services': services
+        })
 
 # def workers_profile(request, service_id):
 #     if request.method == 'GET':
@@ -147,6 +152,7 @@ def service_details(request, service_id):
         service = get_object_or_404(Service, ServiceID=service_id)
         service_name = service.ServiceName
         service_details = service.Description
+        short_description = service.ShortDescription
 
         # Retrieve all employees associated with the service
         # employees = Employee.objects.filter(ServiceID=service)
@@ -155,32 +161,38 @@ def service_details(request, service_id):
         return render(request, 'service_details.html',  {
               'service_id': service_id,
               'service_name': service_name,
-              'service_discription': service_details
+              'short_description': short_description,
+              'service_discription': service_details,
                 })
 
 def appointment(request, service_id, employee_id):
+    service = get_object_or_404(Service, ServiceID=service_id)
+    service_name = service.ServiceName
+    employee = get_object_or_404(Employee, EmployeeID=employee_id)
+    employee_name = employee.Employee_name
+            
+
     if request.method == 'GET':
         # Retrieve the service using the service_id, or return a 404 response if not found
         print(f"service id = {service_id}")
         print(f"employee id = {employee_id}")
-        service = get_object_or_404(Service, ServiceID=service_id)
-        service_name = service.ServiceName
-        employee = get_object_or_404(Employee, EmployeeID=employee_id)
-        employee_name = employee.Employee_name
-        
         print(f"service name = {service_name}")
-
         return render(request, 'appointment.html', {
+            'employee_name': employee_name,
+            'service_name': service_name,
             'service_id': service_id,
             'employee_id': employee_id,
         })
             
 def success(request, service_id, employee_id):
     print(f"service id = {service_id} and employee id = {employee_id}")
+    service = get_object_or_404(Service, ServiceID=service_id)
+    service_name = service.ServiceName
+    employee = get_object_or_404(Employee, EmployeeID=employee_id)
+    employee_name = employee.Employee_name
     if request.method == 'GET':
         # Retrieve the service using the service_id, or return a 404 response if not found
         print(f"service id = {service_id}")
-        
         return render(request, 'success.html')
     if request.method == 'POST':
         try:
@@ -220,10 +232,6 @@ def success(request, service_id, employee_id):
                 AppointmentDate=appointment_date,
                 AppointmentTime=appointment_time
             )
-    
-            # You can perform additional actions after user creation if needed
-            service = get_object_or_404(Service, ServiceID=service_id)
-            service_name = service.ServiceName
             print(f"service name = {service_name}")
             return render(request, 'success.html',{
                 'service_name':service_name,
@@ -235,8 +243,10 @@ def success(request, service_id, employee_id):
             error_message = f"Validation error: {str(e)}"
             print(error_message)
             return render(request, 'appointment.html', {
-            'service_id': service_id,
-            'employee_id': employee_id,
+                'employee_name': employee_name,
+                'service_name': service_name,
+                'service_id': service_id,
+                'employee_id': employee_id,
             })
 
         # except Exception as e:
@@ -250,9 +260,11 @@ def success(request, service_id, employee_id):
         #     })
 
     return render(request, 'appointment.html', {
-        'service_id': service_id,
-        'employee_id': employee_id,
-    })
+                'employee_name': employee_name,
+                'service_name': service_name,
+                'service_id': service_id,
+                'employee_id': employee_id,
+            })
 
 
 def home(request):
