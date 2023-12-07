@@ -9,15 +9,6 @@ class User(AbstractUser):
     age = models.IntegerField(default=0, null=False)  
     pin_code = models.CharField(max_length=10, default='', null=False)
 
-# class User(models.Model):
-#     full_name = models.CharField(max_length=255, null=False)
-#     username = models.CharField(max_length=255, null=False)
-#     password = models.CharField(max_length=255, null=False)
-#     phone_number = models.CharField(max_length=15, null=False)
-#     address = models.CharField(max_length=255, default='', null=False)
-#     age = models.IntegerField(default=0, null=False)  
-#     pin_code = models.CharField(max_length=10, default='', null=False)
-
 class Category(models.Model):
     CategoryID = models.AutoField(primary_key=True)
     CategoryName = models.CharField(max_length=255)

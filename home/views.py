@@ -5,6 +5,7 @@ from .models import *
 from .forms import EmployeeForm 
 from datetime import date, time
 from django.core.exceptions import ValidationError
+from django.core.serializers import serialize
 
 def loginPage(request):
     if request.method == 'GET':
@@ -119,14 +120,6 @@ def services(request):
             'category': category,
             'services': services
         })
-
-# def workers_profile(request, service_id):
-#     if request.method == 'GET':
-#         employees = Employee.objects.all()
-#         print(employees)
-#         return render(request, 'workerprofS3.html', {
-#             'employees': employees
-#             })
     
 def workers_profile(request, service_id):
     if request.method == 'GET':
@@ -269,5 +262,11 @@ def success(request, service_id, employee_id):
 
 def home(request):
     if request.method == 'GET':
-        return render(request, 'home.html')
+        services = Service.objects.all()
+        service_names = Service.objects.values_list('ServiceName', flat=True)
+        service_names_list = list(service_names)
+        return render(request, 'home.html',{
+            'service_names': service_names_list,
+            'services': services ,
+        })
     
